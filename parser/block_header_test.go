@@ -97,7 +97,7 @@ func TestBlockHeader(t *testing.T) {
 		}
 		lastBlockTime = blockHeader.Time
 
-		if len(blockHeader.Solution) != equihashSizeMainnet {
+		if len(blockHeader.Solution) != randomxSizeMainnet {
 			t.Error("Got wrong Equihash solution size.")
 			break
 		}

@@ -290,9 +290,9 @@ func GetLightdInfo() (*walletrpc.LightdInfo, error) {
 		}
 	}
 
-	vendor := "ECC LightWalletD"
+	vendor := "Juno LightWalletD"
 	if DarksideEnabled {
-		vendor = "ECC DarksideWalletD"
+		vendor = "Juno DarksideWalletD"
 	}
 	return &walletrpc.LightdInfo{
 		Version:                 Version,
@@ -393,6 +393,13 @@ func getBlockFromRPC(height int) (*walletrpc.CompactBlock, error) {
 		t.SetTxID(hash32.Reverse(txidBigEndian))
 	}
 	r := block.ToCompact()
+	trueHash, err := hash32.Decode(block1.Hash)
+	if err == nil {
+		reversed := hash32.Reverse(trueHash)
+		r.Hash = reversed[:]
+	} else {
+		Log.Warn("Failed to decode RPC block hash, using calculated hash")
+	}
 	r.ChainMetadata.SaplingCommitmentTreeSize = block1.Trees.Sapling.Size
 	r.ChainMetadata.OrchardCommitmentTreeSize = block1.Trees.Orchard.Size
 	return r, nil
@@ -466,7 +473,7 @@ func BlockIngestor(c *BlockCache, rep int) {
 			Time.Sleep(8 * time.Second)
 			continue
 		}
-		if block != nil && c.HashMatch(hash32.T(block.PrevHash)) {
+		if block != nil && (height == 0 || c.HashMatch(hash32.T(block.PrevHash))) {
 			if err = c.Add(height, block); err != nil {
 				Log.Fatal("Cache add failed:", err)
 			}

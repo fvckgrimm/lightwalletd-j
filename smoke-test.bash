@@ -290,7 +290,7 @@ echo GetLightdInfo ...
 actual=$(gp GetLightdInfo)
 expected='{
   "version": "v0.0.0.0-dev",
-  "vendor": "ECC DarksideWalletD",
+  "vendor": "Juno DarksideWalletD",
   "taddrSupport": true,
   "chainName": "x",
   "saplingActivationHeight": "663150",
