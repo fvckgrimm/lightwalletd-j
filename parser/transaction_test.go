@@ -86,7 +86,7 @@ func TestV5TransactionParser(t *testing.T) {
 		}
 		// Currently, we can't check the txid because we get that from
 		// zcashd (getblock rpc) rather than computing it ourselves.
-		// https://github.com/zcash/lightwalletd/issues/392
+		// https://github.com/fvckgrimm/lightwalletd-j/issues/392
 		if tx.version != uint32(txtestdata.Version) {
 			t.Fatal("version miscompare")
 		}

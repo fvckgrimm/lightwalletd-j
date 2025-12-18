@@ -20,10 +20,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/zcash/lightwalletd/common"
-	"github.com/zcash/lightwalletd/hash32"
-	"github.com/zcash/lightwalletd/parser"
-	"github.com/zcash/lightwalletd/walletrpc"
+	"github.com/fvckgrimm/lightwalletd-j/common"
+	"github.com/fvckgrimm/lightwalletd-j/hash32"
+	"github.com/fvckgrimm/lightwalletd-j/parser"
+	"github.com/fvckgrimm/lightwalletd-j/walletrpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -157,7 +157,7 @@ func (s *lwdStreamer) GetTaddressTransactions(addressBlockFilter *walletrpc.Tran
 
 // This method is deprecated; use GetTaddressTransactions instead. The two functions have the
 // same functionality, but the name GetTaddressTxids is misleading, because the method returns
-// transactions, not transaction IDs (txids). See https://github.com/zcash/lightwalletd/issues/426
+// transactions, not transaction IDs (txids). See https://github.com/fvckgrimm/lightwalletd-j/issues/426
 func (s *lwdStreamer) GetTaddressTxids(addressBlockFilter *walletrpc.TransparentAddressBlockFilter, resp walletrpc.CompactTxStreamer_GetTaddressTxidsServer) error {
 	common.Log.Debugf("gRPC GetTaddressTxids, deprecated, calling GetTaddressTransactions...\n")
 	return s.GetTaddressTransactions(addressBlockFilter, resp)
@@ -175,7 +175,7 @@ func (s *lwdStreamer) GetBlock(ctx context.Context, id *walletrpc.BlockID) (*wal
 	// Precedence: a hash is more specific than a height. If we have it, use it first.
 	if id.Hash != nil {
 		// TODO: Get block by hash
-		// see https://github.com/zcash/lightwalletd/pull/309
+		// see https://github.com/fvckgrimm/lightwalletd-j/pull/309
 		return nil, status.Error(codes.InvalidArgument,
 			"GetBlock: Block hash specifier is not yet implemented")
 	}
@@ -200,7 +200,7 @@ func (s *lwdStreamer) GetBlockNullifiers(ctx context.Context, id *walletrpc.Bloc
 	// Precedence: a hash is more specific than a height. If we have it, use it first.
 	if id.Hash != nil {
 		// TODO: Get block by hash
-		// see https://github.com/zcash/lightwalletd/pull/309
+		// see https://github.com/fvckgrimm/lightwalletd-j/pull/309
 		return nil, status.Error(codes.InvalidArgument,
 			"GetBlockNullifiers: GetBlock by Hash is not yet implemented")
 	}

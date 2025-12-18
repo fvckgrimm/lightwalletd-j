@@ -11,7 +11,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/zcash/lightwalletd/hash32"
+	"github.com/fvckgrimm/lightwalletd-j/hash32"
 )
 
 // https://bitcoin.org/en/developer-reference#target-nbits

@@ -14,9 +14,9 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
-	"github.com/zcash/lightwalletd/hash32"
-	"github.com/zcash/lightwalletd/parser"
-	"github.com/zcash/lightwalletd/walletrpc"
+	"github.com/fvckgrimm/lightwalletd-j/hash32"
+	"github.com/fvckgrimm/lightwalletd-j/parser"
+	"github.com/fvckgrimm/lightwalletd-j/walletrpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -323,7 +323,7 @@ func getBlockFromRPC(height int) (*walletrpc.CompactBlock, error) {
 	//
 	// Unfortunately, this RPC doesn't return the raw hex for the block,
 	// so a second getblock RPC (non-verbose) is needed (below).
-	// https://github.com/zcash/lightwalletd/issues/392
+	// https://github.com/fvckgrimm/lightwalletd-j/issues/392
 
 	heightJSON, err := json.Marshal(strconv.Itoa(height))
 	if err != nil {

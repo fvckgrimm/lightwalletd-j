@@ -13,8 +13,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/zcash/lightwalletd/hash32"
-	"github.com/zcash/lightwalletd/parser/internal/bytestring"
+	"github.com/fvckgrimm/lightwalletd-j/hash32"
+	"github.com/fvckgrimm/lightwalletd-j/parser/internal/bytestring"
 )
 
 const (

@@ -1,4 +1,4 @@
-module github.com/zcash/lightwalletd
+module github.com/fvckgrimm/lightwalletd-j
 
 go 1.24.0
 

@@ -16,7 +16,7 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
-	"github.com/zcash/lightwalletd/walletrpc"
+	"github.com/fvckgrimm/lightwalletd-j/walletrpc"
 )
 
 // ------------------------------------------ Setup
