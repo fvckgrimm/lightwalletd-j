@@ -35,7 +35,7 @@ Documentation for lightwalletd clients (the gRPC interface) is in `docs/rtd/inde
 
 ## Zcashd
 
-You must start a local instance of `zcashd`, and its `.zcash/zcash.conf` file must include the following entries
+You must start a local instance of `junocashd`, and its `.junocash/junocash.conf` file must include the following entries
 (set the user and password strings accordingly):
 ```
 txindex=1
@@ -45,11 +45,11 @@ rpcuser=xxxxx
 rpcpassword=xxxxx
 ```
 
-The `zcashd` can be configured to run `mainnet` or `testnet` (or `regtest`). If you stop `zcashd` and restart it on a different network (switch from `testnet` to `mainnet`, for example), you must also stop and restart lightwalletd.
+The `junocashd` can be configured to run `mainnet` or `testnet` (or `regtest`). If you stop `zcashd` and restart it on a different network (switch from `testnet` to `mainnet`, for example), you must also stop and restart lightwalletd.
 
-It's necessary to run `zcashd --reindex` one time for these options to take effect. This typically takes several hours, and requires more space in the `.zcash` data directory.
+It's necessary to run `junocashd --reindex` one time for these options to take effect. This typically takes several hours, and requires more space in the `.zcash` data directory.
 
-Lightwalletd uses the following `zcashd` RPCs:
+Lightwalletd uses the following `junocashd` RPCs:
 - `getinfo`
 - `getblockchaininfo`
 - `getbestblockhash`
@@ -74,7 +74,7 @@ your `$GOPATH` (`$HOME/go` by default), then build the lightwalletd server binar
 Assuming you used `make` to build the server, here's a typical developer invocation:
 
 ```
-./lightwalletd --no-tls-very-insecure --zcash-conf-path ~/.zcash/zcash.conf --data-dir . --log-file /dev/stdout
+./lightwalletd --no-tls-very-insecure --zcash-conf-path ~/.junocash/junocash.conf --data-dir . --log-file /dev/stdout
 ```
 Type `./lightwalletd help` to see the full list of options and arguments.
 
