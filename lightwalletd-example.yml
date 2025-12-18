@@ -5,3 +5,4 @@ log-level: 10
 tls-cert: /secrets/lightwallted/cert.pem
 tls-key: /secrets/lightwallted/cert.key
 zcash-conf-path: /srv/zcashd/zcash.conf
+sapling-activation-height: 0
