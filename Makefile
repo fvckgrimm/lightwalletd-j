@@ -134,7 +134,7 @@ dep:
 
 # Build binary
 build:
-	go build $(LDFLAGS)
+	go build -o lightwalletd $(LDFLAGS)
 
 build_rel:
 	go build $(LDFLAGS)
